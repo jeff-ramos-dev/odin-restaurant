@@ -1,13 +1,14 @@
 import './style.css';
-import ladybug from './ladybug.png'
-import sushi from './sushi-plate.jpg'
+import ladybug from './images/ladybug.png'
+import about from './about'
 
-function main() {
+function content() {
     const content = document.createElement('div');
     content.classList.add('content');
 
-    content.appendChild(header())
-    content.appendChild(footer())
+    content.appendChild(header());
+    content.appendChild(main());
+    content.appendChild(about())
 
     return content
 }
@@ -47,12 +48,15 @@ function header() {
 
     const about = document.createElement('li');
     about.textContent = 'About'
+    about.addEventListener('click', loadAbout);
 
     const menu = document.createElement('li');
     menu.textContent = 'Menu';
+    menu.addEventListener('click', loadMenu);
 
     const contact = document.createElement('li');
     contact.textContent = 'Contact';
+    contact.addEventListener('click', loadContact);
 
     header.appendChild(engTitleSushi);
     engTitleSushi.appendChild(engTitleMushi);
@@ -69,8 +73,11 @@ function header() {
    return header 
 }
 
-function about() {
+function main() {
+    const main = document.createElement('main');
+    main.classList.add('main')
 
+    return main
 }
 
 function footer() {
@@ -112,4 +119,17 @@ function footer() {
     return footer
 }
 
-document.body.appendChild(main());
+function loadAbout() {
+    return
+}
+
+function loadMenu() {
+    return
+}
+
+function loadContact() {
+    return
+}
+
+document.body.appendChild(content());
+document.body.appendChild(footer());
