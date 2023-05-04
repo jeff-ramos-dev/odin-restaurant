@@ -18,11 +18,11 @@ function header() {
 
     const engTitleSushi = document.createElement('h1');
     engTitleSushi.textContent = 'SUSHI';
-    engTitleSushi.classList.add('sushi')
+    engTitleSushi.classList.add('sushi');
 
     const engTitleMushi = document.createElement('span');
     engTitleMushi.textContent = 'MUSHI';
-    engTitleMushi.classList.add('mushi')
+    engTitleMushi.classList.add('mushi');
 
     const logoDiv = document.createElement('div');
     logoDiv.classList.add('jp-name-logo');
@@ -37,7 +37,22 @@ function header() {
 
     const lady = new Image();
     lady.src = ladybug;
-    lady.classList.add('logo')
+    lady.classList.add('logo');
+
+    const tabDiv = document.createElement('div');
+    tabDiv.classList.add('tab-div');
+
+    const tabs = document.createElement('ul');
+    tabs.classList.add('tabs');
+
+    const about = document.createElement('li');
+    about.textContent = 'About'
+
+    const menu = document.createElement('li');
+    menu.textContent = 'Menu';
+
+    const contact = document.createElement('li');
+    contact.textContent = 'Contact';
 
     header.appendChild(engTitleSushi);
     engTitleSushi.appendChild(engTitleMushi);
@@ -45,6 +60,11 @@ function header() {
     logoDiv.appendChild(jpTitleSushi);
     jpTitleSushi.appendChild(jpTitleMushi);
     logoDiv.appendChild(lady);
+    header.appendChild(tabDiv);
+    tabDiv.appendChild(tabs);
+    tabs.appendChild(about);
+    tabs.appendChild(menu);
+    tabs.appendChild(contact);
 
    return header 
 }

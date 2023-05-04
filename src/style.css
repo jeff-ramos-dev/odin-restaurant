@@ -1,6 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
+:root {
+  --primary-blue: aqua;
+  --primary-red: rgb(228, 42, 42);
+  --overlay-color: rgba(255, 255, 255, 0.2);
 }
 
 /* outfit-regular - latin */
@@ -21,6 +22,12 @@
   font-weight: 700;
   src: url('./fonts/outfit-v11-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
        url('./fonts/outfit-v11-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', serif;
 }
 
 body {
@@ -54,9 +61,15 @@ a {
   color: white;
 }
 
+h1 {
+  text-shadow: 2px 2px 5px black;
+}
+
 .logo {
   aspect-ratio: 1;
   height: 30px;
+  border-radius: 100%;
+  box-shadow: 2px 2px 5px black;
 }
 
 .logo:hover {
@@ -72,10 +85,10 @@ a {
 }
 
 .header {
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.2);
+  height: 150px;
+  background-color: var(--overlay-color);
   padding: 20px;
-  font-family: 'Outfit', serif;
+  text-align: center;
 }
 
 .jp-name-logo {
@@ -87,10 +100,38 @@ a {
 }
 
 .sushi {
-  color: aqua;
+  color: var(--primary-blue);
 }
 
 .mushi {
-  color: rgb(228, 42, 42);
+  color: var(--primary-red);
 }
 
+.tab-div {
+  padding: 0 25%;
+  margin-top: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tabs > li {
+  padding: 5px 2px;
+  transition: transform 0.3s; 
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: rgb(21, 21, 21);
+}
+
+.tabs > li:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.tabs > li:nth-child(2) {
+  margin-left: 20px;
+  margin-right: 20px;
+}
