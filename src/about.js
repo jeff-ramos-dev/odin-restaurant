@@ -1,7 +1,8 @@
 
 export default function aboutPage() {
     const container = document.createElement('div');
-    container.classList.add('about-container');
+    container.classList.add('about');
+    container.classList.add('container')
 
     const desc = document.createElement('p');
     desc.classList.add('desc');

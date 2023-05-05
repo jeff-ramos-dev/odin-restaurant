@@ -1,6 +1,8 @@
 import './style.css';
 import ladybug from './images/ladybug.png'
 import about from './about'
+import menu from './menu'
+import contact from './contact'
 
 function content() {
     const content = document.createElement('div');
@@ -8,7 +10,9 @@ function content() {
 
     content.appendChild(header());
     content.appendChild(main());
-    content.appendChild(about())
+    content.appendChild(about());
+    content.appendChild(menu());
+    content.appendChild(contact());
 
     return content
 }
@@ -119,17 +123,34 @@ function footer() {
     return footer
 }
 
+function clearMain() {
+    const containers = document.querySelectorAll('.container');
+    for (let c of containers) {
+        c.style.display = 'none';
+    }
+    return
+}
 function loadAbout() {
+    clearMain()
+    const about = document.querySelector('.about');
+    about.style.display = 'grid';
     return
 }
 
 function loadMenu() {
+    clearMain()
+    const menu = document.querySelector('.menu');
+    menu.style.display = 'grid';
     return
 }
 
 function loadContact() {
+    clearMain()
+    const contact = document.querySelector('.contact');
+    contact.style.display = 'grid';
     return
 }
 
 document.body.appendChild(content());
 document.body.appendChild(footer());
+clearMain()
