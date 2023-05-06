@@ -1,3 +1,4 @@
+import './about.css'
 
 export default function aboutPage() {
     const container = document.createElement('div');

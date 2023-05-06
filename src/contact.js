@@ -1,4 +1,4 @@
-import './form.css';
+import './contact.css';
 
 export default function menuPage() {
     const container = document.createElement('div');

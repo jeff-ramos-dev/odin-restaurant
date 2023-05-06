@@ -110,7 +110,7 @@ h1 {
 
 .tabs {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -138,7 +138,7 @@ h1 {
   padding: 20px;
   background: url('./images/jp-chef2.jpg');
   background-size: cover;
-  background-position-x: 120px;
+  /* background-position-x: 120px; */
   height: 100%;
 }
 
@@ -149,32 +149,10 @@ h1 {
   background: url('./images/jp-chef.jpg');
   background-size: cover;
   background-position: center;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   place-items: center;
   gap: 40px;
   overflow-y: scroll;
-}
-
-.item-container {
-  height: 150px;
-  width: 150px;
-  border: 2px solid white;
-  background:rgba(255, 255, 255, 0.2);
-  display: flex;
-  flex-direction: column;
-}
-
-.item {
-  height: 100px;
-  background: black;
-  margin: 10px;
-  border-radius: 10px;
-}
-
-.item-desc {
-  color: black;
-  width: 100%;
-  text-align: center;
 }
 
 .contact {
@@ -189,10 +167,4 @@ h1 {
 
 .hero-img {
   height: 180px;
-}
-
-.desc {
-  max-width: 300px;
-  text-align: center;
-  line-height: 2;
 }

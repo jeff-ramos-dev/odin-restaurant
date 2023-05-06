@@ -1,3 +1,4 @@
+import './menu.css'
 import nigiriSushi from './images/nigiri-sushi.jpg'
 import makiSushi from './images/maki-sushi.jpg'
 import ramen from './images/ramen.jpg'
@@ -19,6 +20,7 @@ export default function menuPage() {
         'Tempura',
         'Drinks',
     ]
+
     const menuImages = [
         nigiriSushi,
         makiSushi,
@@ -32,6 +34,7 @@ export default function menuPage() {
         let itemContainer = document.createElement('div');
         itemContainer.classList.add('item-container');
         itemContainer.id = `item-container${i+1}`;
+        itemContainer.style.background = `url(${menuImages[i]})`
 
         let itemImg = new Image()
         itemImg.classList.add('item');
@@ -40,7 +43,7 @@ export default function menuPage() {
 
         let itemDesc = document.createElement('p');
         itemDesc.classList.add('item-desc');
-        itemDesc.id = `item-desc${i+1}`;
+        itemDesc.id = `item-desc-${i+1}`;
         itemDesc.textContent = menuItems[i];
 
         itemContainer.appendChild(itemImg);
