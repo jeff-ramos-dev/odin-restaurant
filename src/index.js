@@ -1,8 +1,10 @@
 import './style.css';
 import ladybug from './images/ladybug.png'
+import githubLogo from './images/github-mark-white.png'
 import about from './about'
 import menu from './menu'
 import contact from './contact'
+import {checkName, checkEmail, checkPhone} from './formValidation'
 
 function content() {
     const content = document.createElement('div');
@@ -15,6 +17,21 @@ function content() {
     content.appendChild(contact());
 
     return content
+}
+
+function setupValidation() {
+    const nameInput = document.querySelector('.name')
+    const email = document.querySelector('.email')
+    const confirm = document.querySelector('.confirm')
+    const phoneNumber = document.querySelector('.phone')
+
+    nameInput.addEventListener('input', () => checkName())
+
+    email.addEventListener('input', () => checkEmail())
+
+    confirm.addEventListener('input', () => checkEmail())
+
+    phoneNumber.addEventListener('input', () => checkPhone())
 }
     
 function header() {
@@ -86,39 +103,19 @@ function main() {
 
 function footer() {
     const footer = document.createElement('footer');
-    const ul = document.createElement('ul');
-    const credit1 = document.createElement('li');
-    const link1a = document.createElement('a');
-    const span1 = document.createElement('span');
-    const link1b = document.createElement('a');
-    const credit2 = document.createElement('li');
-    const link2a = document.createElement('a');
-    const span2 = document.createElement('span');
-    const link2b = document.createElement('a');
+    const copyright = document.createElement('p');
+    copyright.textContent = '©Jeff Ramos 2023';
 
-    credit1.textContent = 'Photo by '
-    link1a.href = "https://unsplash.com/@geraldine_lewa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-    link1a.textContent = 'GeraldineLewa '
-    span1.textContent = 'on '
-    link1b.href = "https://unsplash.com/s/photos/japanese-restaurant?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-    link1b.textContent = 'Unsplash'
-    
-    credit2.innerHTML = 'Image by '
-    link2a.href = "https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=308051"
-    link2a.textContent = 'Clker-Free-Vector-Images '
-    span2.textContent = 'from '
-    link2b.href = "https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=308051"
-    link2b.textContent = 'Pixabay'
+    const github = document.createElement('a');
+    github.href = 'https://github.com/jeff-ramos-dev'
 
-    footer.appendChild(ul)
-    ul.appendChild(credit1)
-    credit1.appendChild(link1a)
-    credit1.appendChild(span1)
-    credit1.appendChild(link1b)
-    ul.appendChild(credit2)
-    credit2.appendChild(link2a)
-    credit2.appendChild(span2)
-    credit2.appendChild(link2b)
+    const logo = new Image();
+    logo.src = githubLogo;
+    logo.classList.add('github');
+
+    footer.appendChild(copyright)
+    footer.appendChild(github);
+    github.appendChild(logo);
 
     return footer
 }
@@ -154,3 +151,6 @@ function loadContact() {
 document.body.appendChild(content());
 document.body.appendChild(footer());
 clearMain()
+const logo = document.querySelector('.logo');
+logo.addEventListener('click', clearMain);
+setupValidation()

@@ -1,4 +1,5 @@
 import './contact.css';
+import {checkName, checkEmail, checkPhone} from './formValidation'
 
 export default function menuPage() {
     const container = document.createElement('div');
@@ -66,7 +67,7 @@ export default function menuPage() {
     phoneInput.type = 'tel';
     phoneInput.name = 'phone';
     phoneInput.id = 'phone';
-    phoneInput.pattern = "^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"
+    phoneInput.pattern = "^(\\+\\d{1,2}\\s?)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$"
     phoneInput.required = true;
     const phoneError = document.createElement('p');
     phoneError.classList.add('error-message', 'phone-error');
@@ -98,6 +99,16 @@ export default function menuPage() {
     const messageError = document.createElement('p');
     messageError.classList.add('error-message', 'message-error');
 
+    const submit = document.createElement('button');
+    submit.classList.add('submit');
+    submit.textContent = 'SUBMIT';
+    submit.onclick = (e) => {
+        e.preventDefault()
+        if (checkName() && checkEmail() && checkPhone()) {
+            alert('Message Sent!');
+        }
+    }
+
     container.appendChild(form)
     form.appendChild(inputs)
     inputs.appendChild(formTitle)
@@ -125,6 +136,7 @@ export default function menuPage() {
     messageDiv.appendChild(messageLabel);
     messageDiv.appendChild(messageInput);
     messageDiv.appendChild(messageError);
+    inputs.appendChild(submit);
 
     return container
 }
