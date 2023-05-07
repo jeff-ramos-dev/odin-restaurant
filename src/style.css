@@ -116,6 +116,7 @@ h1 {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  color: black;
 }
 
 .tabs > li {
@@ -123,17 +124,20 @@ h1 {
   transition: transform 0.3s; 
   font-weight: bold;
   font-size: 1.5rem;
-  color: rgb(21, 21, 21);
 }
 
 .tabs > li:hover {
-  transform: translateY(-5px);
+  color: aqua;
   cursor: pointer;
 }
 
 .tabs > li:nth-child(2) {
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.selected {
+  color: aqua;
 }
 
 .about {

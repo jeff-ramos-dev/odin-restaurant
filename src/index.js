@@ -68,15 +68,21 @@ function header() {
     tabs.classList.add('tabs');
 
     const about = document.createElement('li');
-    about.textContent = 'About'
+    about.textContent = 'About';
+    about.id = 'about-tab';
+    about.classList.add('tab');
     about.addEventListener('click', loadAbout);
 
     const menu = document.createElement('li');
     menu.textContent = 'Menu';
+    menu.id = 'menu-tab';
+    menu.classList.add('tab');
     menu.addEventListener('click', loadMenu);
 
     const contact = document.createElement('li');
     contact.textContent = 'Contact';
+    contact.id = 'contact-tab';
+    contact.classList.add('tab');
     contact.addEventListener('click', loadContact);
 
     header.appendChild(engTitleSushi);
@@ -122,29 +128,40 @@ function footer() {
 
 function clearMain() {
     const containers = document.querySelectorAll('.container');
+    const tabs = document.querySelectorAll('.tab');
     for (let c of containers) {
         c.style.display = 'none';
     }
+    for (let t of tabs) {
+        t.classList.remove('selected');
+    }
+
     return
 }
 function loadAbout() {
     clearMain()
     const about = document.querySelector('.about');
+    const aboutTab = document.getElementById('about-tab')
     about.style.display = 'grid';
+    aboutTab.classList.add('selected');
     return
 }
 
 function loadMenu() {
     clearMain()
     const menu = document.querySelector('.menu');
+    const menuTab = document.getElementById('menu-tab');
     menu.style.display = 'grid';
+    menuTab.classList.add('selected');
     return
 }
 
 function loadContact() {
     clearMain()
     const contact = document.querySelector('.contact');
+    const contactTab = document.getElementById('contact-tab');
     contact.style.display = 'grid';
+    contactTab.classList.add('selected');
     return
 }
 
