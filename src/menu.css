@@ -23,8 +23,5 @@
   color: black;
   width: 100%;
   text-align: center;
-}
-
-#item-desc-1 {
-  color: white;
+  background-color: white;
 }

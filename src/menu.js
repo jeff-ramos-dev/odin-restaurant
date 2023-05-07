@@ -34,19 +34,15 @@ export default function menuPage() {
         let itemContainer = document.createElement('div');
         itemContainer.classList.add('item-container');
         itemContainer.id = `item-container${i+1}`;
-        itemContainer.style.background = `url(${menuImages[i]})`
-
-        let itemImg = new Image()
-        itemImg.classList.add('item');
-        itemImg.id = `item-${i+1}`;
-        itemImg.src = menuImages[i]
+        itemContainer.style.background = `url(${menuImages[i]})`;
+        itemContainer.style.backgroundPosition = 'center';
+        itemContainer.style.backgroundSize = 'cover'
 
         let itemDesc = document.createElement('p');
         itemDesc.classList.add('item-desc');
         itemDesc.id = `item-desc-${i+1}`;
         itemDesc.textContent = menuItems[i];
 
-        itemContainer.appendChild(itemImg);
         itemContainer.appendChild(itemDesc);
         container.appendChild(itemContainer);
     }
